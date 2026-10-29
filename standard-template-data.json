@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.28.0",
-    "generatedAt": "2026-10-29T07:12:55.093119581Z",
+    "version": "1.29.0",
+    "generatedAt": "2026-10-29T07:21:13.818370077Z",
     "templateType": "full_banner_slider_flat",
     "propertyId": "01a12b44-8592-74f6-920b-e6bfb4246466",
     "homepageId": "01a18597-7fb6-7491-99f0-b6cbd9c1c016"
@@ -9383,8 +9383,7 @@
               "blockId": "01a1536e-b4b6-7e7b-b98f-95b86bd024f4",
               "category": "roomtype_exterior"
             }
-          ],
-          "groupName": "스탠다드"
+          ]
         },
         {
           "id": "01a1536e-b507-7132-8741-2600bf725ba0",
