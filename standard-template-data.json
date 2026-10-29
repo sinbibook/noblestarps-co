@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.25.0",
-    "generatedAt": "2026-10-29T06:56:32.417248647Z",
+    "version": "1.26.0",
+    "generatedAt": "2026-10-29T07:00:53.914244404Z",
     "templateType": "full_banner_slider_flat",
     "propertyId": "01a12b44-8592-74f6-920b-e6bfb4246466",
     "homepageId": "01a18597-7fb6-7491-99f0-b6cbd9c1c016"
@@ -153,7 +153,7 @@
       {
         "id": "01a18545-3b69-7b58-95d8-55d4f5dba6d6",
         "name": "카바나",
-        "description": "",
+        "description": "바깥 풍경을 가까이 두고 편하게 쉬어가는 아늑한 공간.\n가벼운 이야기를 나누거나 조용히 풍경을 바라보며, 느긋하게 머물러보세요.",
         "usageGuide": "",
         "displayOrder": 2,
         "images": [
