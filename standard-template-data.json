@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.29.0",
-    "generatedAt": "2026-10-29T07:21:13.818370077Z",
+    "version": "1.30.0",
+    "generatedAt": "2026-10-29T07:26:22.427169066Z",
     "templateType": "full_banner_slider_flat",
     "propertyId": "01a12b44-8592-74f6-920b-e6bfb4246466",
     "homepageId": "01a18597-7fb6-7491-99f0-b6cbd9c1c016"
@@ -8060,8 +8060,7 @@
               "blockId": "01a1536e-b817-70b0-b136-33f379dcc5ab",
               "category": "roomtype_exterior"
             }
-          ],
-          "groupName": "스탠다드"
+          ]
         },
         {
           "id": "01a1536e-af6c-7cb1-acff-f832d65fbb3d",
@@ -8210,8 +8209,7 @@
               "blockId": "01a1536e-af6c-7cb1-acff-f832d65fbb3d",
               "category": "roomtype_exterior"
             }
-          ],
-          "groupName": "스탠다드"
+          ]
         },
         {
           "id": "01a1536e-afef-7092-8750-3b838f173a6f",
@@ -8360,8 +8358,7 @@
               "blockId": "01a1536e-afef-7092-8750-3b838f173a6f",
               "category": "roomtype_exterior"
             }
-          ],
-          "groupName": "스탠다드"
+          ]
         },
         {
           "id": "01a1536e-b05a-7fda-9e96-16af5fd8020b",
@@ -8510,8 +8507,7 @@
               "blockId": "01a1536e-b05a-7fda-9e96-16af5fd8020b",
               "category": "roomtype_exterior"
             }
-          ],
-          "groupName": "스탠다드"
+          ]
         },
         {
           "id": "01a1536e-b214-70d7-b5fc-512bb0d40be6",
@@ -8660,8 +8656,7 @@
               "blockId": "01a1536e-b214-70d7-b5fc-512bb0d40be6",
               "category": "roomtype_exterior"
             }
-          ],
-          "groupName": "스탠다드"
+          ]
         },
         {
           "id": "01a1536e-b13c-722b-ab03-8b47f64fb90e",
@@ -8810,8 +8805,7 @@
               "blockId": "01a1536e-b13c-722b-ab03-8b47f64fb90e",
               "category": "roomtype_exterior"
             }
-          ],
-          "groupName": "스탠다드"
+          ]
         },
         {
           "id": "01a1536e-b29f-72e5-89dc-7712b449a119",
@@ -8960,8 +8954,7 @@
               "blockId": "01a1536e-b29f-72e5-89dc-7712b449a119",
               "category": "roomtype_exterior"
             }
-          ],
-          "groupName": "스탠다드"
+          ]
         },
         {
           "id": "01a1536e-b379-7982-b87f-15030b337e47",
@@ -9110,8 +9103,7 @@
               "blockId": "01a1536e-b379-7982-b87f-15030b337e47",
               "category": "roomtype_exterior"
             }
-          ],
-          "groupName": "스탠다드"
+          ]
         },
         {
           "id": "01a1536e-b407-7806-b55a-11ac5160948a",
@@ -9233,8 +9225,7 @@
               "blockId": "01a1536e-b407-7806-b55a-11ac5160948a",
               "category": "roomtype_interior"
             }
-          ],
-          "groupName": "스탠다드"
+          ]
         },
         {
           "id": "01a1536e-b4b6-7e7b-b98f-95b86bd024f4",
