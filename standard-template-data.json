@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.13.0",
-    "generatedAt": "2026-10-29T06:31:54.963145704Z",
+    "version": "1.14.0",
+    "generatedAt": "2026-10-29T06:33:44.189279995Z",
     "templateType": "full_banner_slider_flat",
     "propertyId": "01a12b44-8592-74f6-920b-e6bfb4246466",
     "homepageId": "01a18597-7fb6-7491-99f0-b6cbd9c1c016"
@@ -5584,7 +5584,7 @@
                 "description": "Closer to Nature"
               },
               "gallery": {
-                "title": "",
+                "title": "Special",
                 "images": [ ],
                 "videos": [ ],
                 "mediaType": "image",
