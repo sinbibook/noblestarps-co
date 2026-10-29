@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.17.0",
-    "generatedAt": "2026-10-29T06:40:35.140154589Z",
+    "version": "1.18.0",
+    "generatedAt": "2026-10-29T06:43:19.161054096Z",
     "templateType": "full_banner_slider_flat",
     "propertyId": "01a12b44-8592-74f6-920b-e6bfb4246466",
     "homepageId": "01a18597-7fb6-7491-99f0-b6cbd9c1c016"
@@ -5598,7 +5598,7 @@
                     "id": "01a18663-866f-730c-82b9-988b0c404149",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_gallery/1793256031321-fwjakst729.jpg",
                     "sortOrder": 1,
-                    "description": "",
+                    "description": "맛있는 저녁과 즐거운 대화",
                     "isSelected": true,
                     "blockId": null
                   },
@@ -5606,7 +5606,7 @@
                     "id": "01a18661-04f2-7bcc-8db9-6878717189b4",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_gallery/1793255867331-i2pwtc9akk.jpg",
                     "sortOrder": 2,
-                    "description": "",
+                    "description": "아늑한 불빛 아래 쉬어가는 시간",
                     "isSelected": true,
                     "blockId": null
                   },
@@ -5614,7 +5614,7 @@
                     "id": "01a18661-05fe-7c55-a27b-614925350493",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_gallery/1793255867329-9kuozys5pc.jpg",
                     "sortOrder": 3,
-                    "description": "",
+                    "description": "계절의 풍경을 마주하는 자리",
                     "isSelected": true,
                     "blockId": null
                   }
