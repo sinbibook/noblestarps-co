@@ -213,33 +213,31 @@ class FacilityMapper extends BaseDataMapper {
         const facility = this.getCurrentFacility();
         if (!facility) return;
 
-        // SPECIAL 넘버링 매핑 (메뉴와 동일하게 displayOrder 정렬 순서 기준)
-        const facilityNumber = this.safeSelect('#facility-number');
-        if (facilityNumber) {
-            const facilities = this.safeGet(this.data, 'property.facilities') || [];
-            const sortedFacilities = [...facilities].sort((a, b) => (a.displayOrder ?? 0) - (b.displayOrder ?? 0));
-            const orderIndex = sortedFacilities.findIndex(f => f.id === facility.id);
-            const number = orderIndex >= 0 ? orderIndex : 0;
-            facilityNumber.textContent = `SPECIAL ${String(number + 1).padStart(2, '0')}`;
-        }
-
         // 시설명 매핑
         const facilityName = this.safeSelect('[data-facility-name]');
         if (facilityName) {
             facilityName.textContent = facility.name || 'BBQ';
         }
 
-        // 시설 설명 매핑
+        // SPECIAL 번호 — 헤더 Specials 메뉴와 같은 순서(displayOrder)로 01, 02, 03 …
+        const facilityNumber = this.safeSelect('#facility-number');
+        if (facilityNumber) {
+            const facilities = this.safeGet(this.data, 'property.facilities') || [];
+            const sorted = [...facilities].sort((a, b) => (a.displayOrder ?? 0) - (b.displayOrder ?? 0));
+            const order = sorted.findIndex(item => item.id === facility.id);
+            facilityNumber.textContent = `SPECIAL ${String((order === -1 ? 0 : order) + 1).padStart(2, '0')}`;
+        }
+
+        // 시설 설명 매핑 — 빌더 about.title → 시설 정보 description. 둘 다 비면 영역째 숨긴다
+        // (예전에는 기본 문구 '시설 설명입니다.' 를 넣어, 설명 없이 이용안내만 있는 시설에도 그 문구가 보였다)
         const facilityDescription = this.safeSelect('[data-facility-description]');
         if (facilityDescription) {
-            // customFields에서 about.title 가져오기
             const facilityPages = this.safeGet(this.data, 'homepage.customFields.pages.facility');
-            const facilityPageData = facilityPages?.find(page => page.id === facility.id);
-            const description = (facilityPageData?.sections?.[0]?.about?.title || facility.description || '').trim();
+            const facilityPageData = Array.isArray(facilityPages) ? facilityPages.find(page => page.id === facility.id) : null;
+            const description = String(facilityPageData?.sections?.[0]?.about?.title || facility.description || '').trim();
+            const wrapper = facilityDescription.closest('.facility-description') || facilityDescription;
             facilityDescription.textContent = description;
-            // 설명이 없으면 설명 영역을 숨긴다
-            const descriptionWrap = facilityDescription.closest('.facility-description');
-            if (descriptionWrap) descriptionWrap.style.display = description ? '' : 'none';
+            wrapper.style.display = description ? '' : 'none';
         }
     }
 
@@ -427,11 +425,13 @@ class FacilityMapper extends BaseDataMapper {
         // usageGuide 추가 (임시)
         if (facility.usageGuide) {
             const usageGuideItem = document.createElement('div');
-            usageGuideItem.className = 'facility-feature-item usage-guide usage-guide-item';
+            usageGuideItem.className = 'facility-feature-item usage-guide';
+            usageGuideItem.style.marginTop = '20px';
+            // usageGuideItem.style.borderTop = '1px solid #e0e0e0';
 
             const description = document.createElement('p');
             description.className = 'feature-description';
-            description.textContent = facility.usageGuide;
+            description.innerHTML = facility.usageGuide.replace(/\n/g, '<br>');
 
             usageGuideItem.appendChild(description);
             container.appendChild(usageGuideItem);
@@ -729,12 +729,10 @@ class FacilityMapper extends BaseDataMapper {
         this.mapSliderSection();
 
         // 메타 태그 업데이트 (페이지별 SEO 적용)
-        const property = this.data.property;
-        // customFields 헬퍼 함수 사용
         const propertyName = this.getPropertyName();
         const pageSEO = {
-            title: (facility?.name && propertyName) ? `${facility.name} - ${propertyName}` : 'SEO 타이틀',
-            description: facility?.description || property?.description || 'SEO 설명'
+            title: facility?.name ? `${facility.name} - ${propertyName}` : 'SEO 타이틀',
+            description: facility?.description || this.data.property?.description || 'SEO 설명'
         };
         this.updateMetaTags(pageSEO);
 
@@ -753,7 +751,6 @@ class FacilityMapper extends BaseDataMapper {
 
         // 텍스트 관련 섹션들만 업데이트
         this.mapHeroSection();
-        this.mapFacilityIntroSection();
         this.mapMainContentSection();
         this.mapExperienceSection();
     }
