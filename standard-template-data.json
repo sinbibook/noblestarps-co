@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.14.0",
-    "generatedAt": "2026-10-29T06:33:44.189279995Z",
+    "version": "1.15.0",
+    "generatedAt": "2026-10-29T06:37:50.632680232Z",
     "templateType": "full_banner_slider_flat",
     "propertyId": "01a12b44-8592-74f6-920b-e6bfb4246466",
     "homepageId": "01a18597-7fb6-7491-99f0-b6cbd9c1c016"
@@ -5585,7 +5585,40 @@
               },
               "gallery": {
                 "title": "Special",
-                "images": [ ],
+                "images": [
+                  {
+                    "id": "01a18661-05d1-7d0a-9a73-c842d62b1d1d",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_gallery/1793255867300-151mekmjse.jpg",
+                    "sortOrder": 0,
+                    "description": "",
+                    "isSelected": true,
+                    "blockId": null
+                  },
+                  {
+                    "id": "01a18661-04cf-7f43-b6ed-afdb708e609a",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_gallery/1793255867300-1z1vzk8ru2.jpg",
+                    "sortOrder": 1,
+                    "description": "",
+                    "isSelected": true,
+                    "blockId": null
+                  },
+                  {
+                    "id": "01a18661-04f2-7bcc-8db9-6878717189b4",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_gallery/1793255867331-i2pwtc9akk.jpg",
+                    "sortOrder": 2,
+                    "description": "",
+                    "isSelected": true,
+                    "blockId": null
+                  },
+                  {
+                    "id": "01a18661-05fe-7c55-a27b-614925350493",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_gallery/1793255867329-9kuozys5pc.jpg",
+                    "sortOrder": 3,
+                    "description": "",
+                    "isSelected": true,
+                    "blockId": null
+                  }
+                ],
                 "videos": [ ],
                 "mediaType": "image",
                 "description": ""
