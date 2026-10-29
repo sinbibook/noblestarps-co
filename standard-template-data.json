@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.18.0",
-    "generatedAt": "2026-10-29T06:43:19.161054096Z",
+    "version": "1.19.0",
+    "generatedAt": "2026-10-29T06:45:46.797132920Z",
     "templateType": "full_banner_slider_flat",
     "propertyId": "01a12b44-8592-74f6-920b-e6bfb4246466",
     "homepageId": "01a18597-7fb6-7491-99f0-b6cbd9c1c016"
@@ -5554,7 +5554,16 @@
               },
               "closing": {
                 "title": "",
-                "images": [ ],
+                "images": [
+                  {
+                    "id": "01a18668-48d0-7304-86ac-ef5c4909b329",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_closing/1793256343268-d6hn2ccz0u.jpg",
+                    "sortOrder": 0,
+                    "description": "",
+                    "isSelected": true,
+                    "blockId": null
+                  }
+                ],
                 "videos": [ ],
                 "mediaType": "image",
                 "description": ""
@@ -5571,8 +5580,8 @@
                     "blockId": null
                   },
                   {
-                    "id": "01a18654-25b6-7d97-b890-0413a8116c91",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_essence/1793255023443-s57kmp20xy.jpg",
+                    "id": "01a18668-4965-76dc-a34f-54926cecb75e",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_essence/1793256342648-rw96zje2ji.jpg",
                     "sortOrder": 1,
                     "description": "",
                     "isSelected": true,
@@ -5625,7 +5634,16 @@
               },
               "signature": {
                 "title": "",
-                "images": [ ],
+                "images": [
+                  {
+                    "id": "01a18668-48bb-75a1-9a0f-241758372c44",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_signature/1793256343266-6irz0gsdkh.jpg",
+                    "sortOrder": 0,
+                    "description": "산자락을 따라 펼쳐진 초록과 나무 사이로 불어오는 바람. \n익숙한 일상에서 잠시 벗어나 눈앞의 풍경을 바라보세요.",
+                    "isSelected": true,
+                    "blockId": null
+                  }
+                ],
                 "videos": [ ],
                 "mediaType": "image",
                 "description": ""
