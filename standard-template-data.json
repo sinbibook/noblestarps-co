@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.21.0",
-    "generatedAt": "2026-10-29T06:48:47.670638441Z",
+    "version": "1.22.0",
+    "generatedAt": "2026-10-29T06:50:49.106034419Z",
     "templateType": "full_banner_slider_flat",
     "propertyId": "01a12b44-8592-74f6-920b-e6bfb4246466",
     "homepageId": "01a18597-7fb6-7491-99f0-b6cbd9c1c016"
@@ -5785,7 +5785,7 @@
                     {
                       "id": "01a1866b-0bfb-7f46-8f98-a0d1b90bdf27",
                       "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/main_about/1793256524373-x1y59o8ap7.jpg",
-                      "sortOrder": 1,
+                      "sortOrder": 0,
                       "description": "",
                       "isSelected": true,
                       "blockId": "d5c2fb3e-0e62-46fd-abee-84c22e341350"
@@ -5793,6 +5793,52 @@
                   ],
                   "blockId": "d5c2fb3e-0e62-46fd-abee-84c22e341350",
                   "description": "푸른 산자락 아래, \n계절마다 달라지는 풍경을 곁에 두고\n여유롭고 느긋한 마음으로 쉬어가며 힐링의 순간을 보내보세요."
+                },
+                {
+                  "title": "Swimming Pool",
+                  "images": [
+                    {
+                      "id": "01a1866c-e6fa-763a-b686-e5b14e6fcd69",
+                      "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/main_about/1793256646020-5awj1wnec3.jpg",
+                      "sortOrder": 1,
+                      "description": "",
+                      "isSelected": true,
+                      "blockId": "e04de78a-07a4-4fed-b287-8366c09c3494"
+                    },
+                    {
+                      "id": "01a1866c-e783-70c4-aadf-a6aee898b926",
+                      "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/main_about/1793256646010-vz45zggpx8.jpg",
+                      "sortOrder": 2,
+                      "description": "",
+                      "isSelected": true,
+                      "blockId": "e04de78a-07a4-4fed-b287-8366c09c3494"
+                    }
+                  ],
+                  "blockId": "e04de78a-07a4-4fed-b287-8366c09c3494",
+                  "description": "초록 풍경을 배경으로 \n물속에 몸을 담그고 더위를 식혀보세요."
+                },
+                {
+                  "title": "Private BBQ",
+                  "images": [
+                    {
+                      "id": "01a1866c-e75a-75b9-9dda-e1d4681d5938",
+                      "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/main_about/1793256646012-tb5kpj0j3f.jpg",
+                      "sortOrder": 3,
+                      "description": "",
+                      "isSelected": true,
+                      "blockId": "642fffe1-b744-48ca-b8d3-852ff3787ac1"
+                    },
+                    {
+                      "id": "01a1866c-e6d5-71ef-8ee9-75c2c055ec68",
+                      "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/main_about/1793256646009-iyfdeh34pd.jpg",
+                      "sortOrder": 4,
+                      "description": "",
+                      "isSelected": true,
+                      "blockId": "642fffe1-b744-48ca-b8d3-852ff3787ac1"
+                    }
+                  ],
+                  "blockId": "642fffe1-b744-48ca-b8d3-852ff3787ac1",
+                  "description": ""
                 }
               ]
             }
