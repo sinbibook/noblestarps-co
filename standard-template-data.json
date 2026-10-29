@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.27.0",
-    "generatedAt": "2026-10-29T07:11:47.582903722Z",
+    "version": "1.28.0",
+    "generatedAt": "2026-10-29T07:12:55.093119581Z",
     "templateType": "full_banner_slider_flat",
     "propertyId": "01a12b44-8592-74f6-920b-e6bfb4246466",
     "homepageId": "01a18597-7fb6-7491-99f0-b6cbd9c1c016"
@@ -6004,7 +6004,12 @@
             "woff2": null,
             "family": "Pretendard"
           },
-          "enMain": null
+          "enMain": {
+            "cdn": "https://fonts.cdnfonts.com/css/gloock-2",
+            "key": "gloock",
+            "woff2": null,
+            "family": "Gloock"
+          }
         },
         "color": {
           "primary": "#FFFFFF",
