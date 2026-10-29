@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.9.0",
-    "generatedAt": "2026-10-29T06:22:37.178186262Z",
+    "version": "1.10.0",
+    "generatedAt": "2026-10-29T06:23:47.240994650Z",
     "templateType": "full_banner_slider_flat",
     "propertyId": "01a12b44-8592-74f6-920b-e6bfb4246466",
     "homepageId": "01a18597-7fb6-7491-99f0-b6cbd9c1c016"
@@ -5561,7 +5561,24 @@
               },
               "essence": {
                 "title": "초록을 바라보며 쉬어가는 하루",
-                "images": [ ],
+                "images": [
+                  {
+                    "id": "01a18654-24da-7b56-b231-0ef430518ef4",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_essence/1793255023454-peh3az4vpc.jpg",
+                    "sortOrder": 0,
+                    "description": "",
+                    "isSelected": true,
+                    "blockId": null
+                  },
+                  {
+                    "id": "01a18654-25b6-7d97-b890-0413a8116c91",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_essence/1793255023443-s57kmp20xy.jpg",
+                    "sortOrder": 1,
+                    "description": "",
+                    "isSelected": true,
+                    "blockId": null
+                  }
+                ],
                 "videos": [ ],
                 "mediaType": "image",
                 "description": "Closer to Nature"
