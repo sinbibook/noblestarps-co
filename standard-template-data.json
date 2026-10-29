@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.16.0",
-    "generatedAt": "2026-10-29T06:39:11.911602152Z",
+    "version": "1.17.0",
+    "generatedAt": "2026-10-29T06:40:35.140154589Z",
     "templateType": "full_banner_slider_flat",
     "propertyId": "01a12b44-8592-74f6-920b-e6bfb4246466",
     "homepageId": "01a18597-7fb6-7491-99f0-b6cbd9c1c016"
@@ -5587,16 +5587,16 @@
                 "title": "Special",
                 "images": [
                   {
-                    "id": "01a18661-05d1-7d0a-9a73-c842d62b1d1d",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_gallery/1793255867300-151mekmjse.jpg",
+                    "id": "01a18663-8652-78cf-af8a-0ea4850d46b7",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_gallery/1793256031317-p7pigoqkgd.jpg",
                     "sortOrder": 0,
-                    "description": "햇살 아래, 시원한 물놀이",
+                    "description": "햇살 아래,시원한 물놀이",
                     "isSelected": true,
                     "blockId": null
                   },
                   {
-                    "id": "01a18661-04cf-7f43-b6ed-afdb708e609a",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_gallery/1793255867300-1z1vzk8ru2.jpg",
+                    "id": "01a18663-866f-730c-82b9-988b0c404149",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/01a18597-7fb6-7491-99f0-b6cbd9c1c016/index_gallery/1793256031321-fwjakst729.jpg",
                     "sortOrder": 1,
                     "description": "",
                     "isSelected": true,
