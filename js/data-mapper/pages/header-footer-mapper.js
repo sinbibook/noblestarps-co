@@ -284,8 +284,9 @@ class HeaderFooterMapper extends BaseDataMapper {
     }
 
     /**
-     * 객실 메뉴 아이템 동적 생성
-     * 모든 객실을 메뉴에 표시
+     * 객실 메뉴 아이템 동적 생성 (그룹 기반)
+     * rooms 배열에서 unique한 group 값을 추출하여 메뉴에 표시
+     * 예: A동, B동 등
      */
     mapRoomMenuItems() {
         const roomData = this.safeGet(this.data, 'rooms');
@@ -294,7 +295,49 @@ class HeaderFooterMapper extends BaseDataMapper {
             return;
         }
 
-        // Desktop 메뉴 업데이트 (모든 객실)
+        // 1. rooms 배열에서 unique한 group 값 추출
+        const uniqueGroups = [...new Set(roomData.map(room => room.group).filter(Boolean))];
+
+        // group이 없으면 기본 메뉴 생성 (room-list.html로 이동)
+        if (uniqueGroups.length === 0) {
+            // 2. Desktop 메뉴 업데이트
+            const spacesMenu = document.querySelector('[data-menu="space"]');
+
+            if (spacesMenu) {
+                const desktopSubmenu = spacesMenu.closest('.menu-item-wrapper')?.querySelector('.submenu');
+
+                if (desktopSubmenu) {
+                    desktopSubmenu.innerHTML = '';
+
+                    const button = document.createElement('button');
+                    button.className = 'submenu-item';
+                    button.textContent = '객실 안내';
+                    button.onclick = () => {
+                        window.location.href = 'room-list.html';
+                    };
+                    desktopSubmenu.appendChild(button);
+                }
+            }
+
+            // 3. Mobile 메뉴 업데이트
+            const mobileContainer = document.getElementById('mobile-spaces-items');
+
+            if (mobileContainer) {
+                mobileContainer.innerHTML = '';
+
+                const button = document.createElement('button');
+                button.className = 'mobile-sub-item';
+                button.textContent = '객실 안내';
+                button.onclick = () => {
+                    window.location.href = 'room-list.html';
+                };
+                mobileContainer.appendChild(button);
+            }
+
+            return;
+        }
+
+        // 2. Desktop 메뉴 업데이트 (group 기반)
         const spacesMenu = document.querySelector('[data-menu="space"]');
 
         if (spacesMenu) {
@@ -303,34 +346,30 @@ class HeaderFooterMapper extends BaseDataMapper {
             if (desktopSubmenu) {
                 desktopSubmenu.innerHTML = '';
 
-                roomData.forEach(room => {
-                    const roomName = this.getRoomName(room);
-
+                uniqueGroups.forEach(group => {
                     const button = document.createElement('button');
                     button.className = 'submenu-item';
-                    button.textContent = roomName;
+                    button.textContent = group;
                     button.onclick = () => {
-                        window.location.href = `room.html?id=${encodeURIComponent(room.id)}`;
+                        window.location.href = `room-list.html?group=${encodeURIComponent(group)}`;
                     };
                     desktopSubmenu.appendChild(button);
                 });
             }
         }
 
-        // Mobile 메뉴 업데이트 (모든 객실)
+        // 3. Mobile 메뉴 업데이트 (group 기반)
         const mobileContainer = document.getElementById('mobile-spaces-items');
 
         if (mobileContainer) {
             mobileContainer.innerHTML = '';
 
-            roomData.forEach(room => {
-                const roomName = this.getRoomName(room);
-
+            uniqueGroups.forEach(group => {
                 const button = document.createElement('button');
                 button.className = 'mobile-sub-item';
-                button.textContent = roomName;
+                button.textContent = group;
                 button.onclick = () => {
-                    window.location.href = `room.html?id=${encodeURIComponent(room.id)}`;
+                    window.location.href = `room-list.html?group=${encodeURIComponent(group)}`;
                 };
                 mobileContainer.appendChild(button);
             });
@@ -437,29 +476,6 @@ class HeaderFooterMapper extends BaseDataMapper {
     }
 
     /**
-     * Footer 농어촌민박사업자 이미지 매핑 (customFields.footer.ruralStayMark)
-     * url 이 있을 때만 노출하고, 없으면 숨긴다. 프리뷰는 같은 페이지에서 다시 매핑하므로
-     * 매번 표시 상태를 되돌린다.
-     */
-    mapFooterRuralStayMark() {
-        const footer = this.safeGet(this.data, 'homepage.customFields.footer') || {};
-        const mark = footer.ruralStayMark;
-        const markUrl = mark && mark.url ? String(mark.url) : '';
-
-        document.querySelectorAll('[data-footer-rural-stay-mark-wrap]').forEach(wrap => {
-            wrap.style.display = markUrl ? '' : 'none';
-        });
-        document.querySelectorAll('[data-footer-rural-stay-mark]').forEach(img => {
-            if (!markUrl) {
-                img.removeAttribute('src');
-                return;
-            }
-            img.src = markUrl;
-            img.alt = (mark.description && String(mark.description).trim()) || '농어촌민박사업자';
-        });
-    }
-
-    /**
      * Footer 사업자 정보 매핑
      */
     mapFooterInfo() {
@@ -502,31 +518,44 @@ class HeaderFooterMapper extends BaseDataMapper {
             ecommerceElement.textContent = businessInfo.eCommerceRegistrationNumber;
         }
 
-        // 저작권 정보 - property.tripProviderName(Trip11 공급자명) 이 있을 때만 노출한다.
-        // 값이 없으면 '신비서' 주체명이 노출되므로 기존대로 블라인드 처리한다.
+        // 저작권 정보 매핑 - 신비서 하드코딩
         const copyrightElement = this.safeSelect('[data-footer-copyright]');
         if (copyrightElement) {
-            const provider = String(this.safeGet(this.data, 'property.tripProviderName') || '').trim();
-            if (provider) {
-                const currentYear = new Date().getFullYear();
-                const copyrightLink = document.createElement('a');
-                copyrightLink.textContent = `© ${currentYear} ${provider}. All rights reserved.`;
-                copyrightLink.style.color = 'inherit';
-                copyrightLink.style.textDecoration = 'none';
-                copyrightElement.innerHTML = '';
-                copyrightElement.appendChild(copyrightLink);
-                copyrightElement.style.display = '';
-            } else {
-                copyrightElement.innerHTML = '';
-                copyrightElement.style.display = 'none';
-            }
+            const currentYear = new Date().getFullYear();
+            // property.tripProviderName(Trip11 공급자명) 이 있으면 그 이름으로, 없으면 기존 '신비서'
+            // innerHTML 에 들어가므로 태그로 해석될 문자는 제거한다
+            const provider = String(this.safeGet(this.data, 'property.tripProviderName') || '').trim().replace(/[&<>"]/g, '') || '신비서';
+            copyrightElement.innerHTML = `<a href="https://www.sinbibook.com/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">© ${currentYear} ${provider}. All rights reserved.</a>`;
         }
     }
 
     /**
+     * Footer 농어촌민박사업자 이미지 매핑
+     * homepage.customFields.footer.ruralStayMark → [data-footer-rural-stay-mark]
+     * url 이 있을 때만 노출하고, 없으면 숨겨 기존 푸터와 같다.
+     * 프리뷰는 같은 페이지에서 다시 매핑하므로 매번 표시 상태를 되돌린다.
+     */
+    mapFooterRuralStayMark() {
+        const mark = this.safeGet(this.data, 'homepage.customFields.footer.ruralStayMark');
+        const markUrl = mark && mark.url ? String(mark.url) : '';
+        const alt = (mark && mark.description && String(mark.description).trim()) || '농어촌민박사업자';
+
+        document.querySelectorAll('[data-footer-rural-stay-mark-wrap]').forEach(wrap => {
+            wrap.style.display = markUrl ? '' : 'none';
+        });
+        document.querySelectorAll('[data-footer-rural-stay-mark]').forEach(img => {
+            if (!markUrl) {
+                img.removeAttribute('src');
+                return;
+            }
+            img.src = markUrl;
+            img.alt = alt;
+        });
+    }
+
+    /**
      * Footer 소셜 링크 매핑
-     * 값이 있는 링크만 표시하고, 노출할 링크가 하나도 없으면
-     * FOLLOW US 타이틀을 포함한 전체 섹션 숨김
+     * 값이 있는 링크만 표시하고, 노출되는 링크가 하나도 없으면 FOLLOW US 섹션 자체를 숨김
      */
     mapSocialLinks() {
         if (!this.isDataLoaded) return;
@@ -599,8 +628,8 @@ class HeaderFooterMapper extends BaseDataMapper {
 
         // Footer 매핑
         this.mapFooterLogo();
-        this.mapFooterRuralStayMark();
         this.mapFooterInfo();
+        this.mapFooterRuralStayMark();
         this.mapSocialLinks();
     }
 
@@ -621,10 +650,37 @@ class HeaderFooterMapper extends BaseDataMapper {
     }
 
     /**
+     * 메뉴 아이템 제거 (기존 항목 정리)
+     */
+    removeMenuItems(container, pages) {
+        if (!container) return;
+        pages.forEach(page => {
+            const item = container.querySelector(`[data-menu-id="${page.id}"]`);
+            if (item) item.remove();
+        });
+    }
+
+    /**
+     * 메뉴 아이템 추가
+     */
+    addMenuItems(container, pages, className) {
+        if (!container) return;
+        pages.forEach(page => {
+            if (page.enabled) {
+                const button = document.createElement('button');
+                button.className = className;
+                button.setAttribute('data-menu-id', page.id);
+                button.textContent = page.name;
+                button.onclick = () => { window.location.href = page.path; };
+                container.appendChild(button);
+            }
+        });
+    }
+
+    /**
      * About 메뉴에 layout-map, nearby-attractions 동적 추가
      */
     mapAboutMenuItems() {
-        // About 메뉴의 submenu 찾기
         const aboutMenu = document.querySelector('[data-menu="about"]');
         if (!aboutMenu) return;
 
@@ -646,29 +702,11 @@ class HeaderFooterMapper extends BaseDataMapper {
             }
         ];
 
-        // 기존 메뉴 아이템 제거
-        customPages.forEach(page => {
-            const existingItem = submenu.querySelector(`[data-menu-id="${page.id}"]`);
-            if (existingItem) {
-                existingItem.remove();
-            }
-        });
+        // Desktop 메뉴 업데이트
+        this.removeMenuItems(submenu, customPages);
+        this.addMenuItems(submenu, customPages, 'submenu-item');
 
-        // enabled가 true인 페이지만 메뉴에 추가 (Desktop)
-        customPages.forEach(page => {
-            if (page.enabled) {
-                const button = document.createElement('button');
-                button.className = 'submenu-item';
-                button.setAttribute('data-menu-id', page.id);
-                button.textContent = page.name;
-                button.onclick = () => {
-                    window.location.href = page.path;
-                };
-                submenu.appendChild(button);
-            }
-        });
-
-        // Mobile About 메뉴도 업데이트
+        // Mobile 메뉴 업데이트
         const mobileAboutSection = document.querySelector('.mobile-menu-section');
         if (!mobileAboutSection) return;
 
@@ -676,29 +714,8 @@ class HeaderFooterMapper extends BaseDataMapper {
         if (!mobileAboutHeader || !mobileAboutHeader.textContent.includes('About')) return;
 
         const mobileAboutItems = mobileAboutSection.querySelector('.mobile-sub-items');
-        if (!mobileAboutItems) return;
-
-        // 기존 모바일 메뉴 아이템 제거
-        customPages.forEach(page => {
-            const existingItem = mobileAboutItems.querySelector(`[data-menu-id="${page.id}"]`);
-            if (existingItem) {
-                existingItem.remove();
-            }
-        });
-
-        // enabled가 true인 페이지만 모바일 메뉴에 추가
-        customPages.forEach(page => {
-            if (page.enabled) {
-                const button = document.createElement('button');
-                button.className = 'mobile-sub-item';
-                button.setAttribute('data-menu-id', page.id);
-                button.textContent = page.name;
-                button.onclick = () => {
-                    window.location.href = page.path;
-                };
-                mobileAboutItems.appendChild(button);
-            }
-        });
+        this.removeMenuItems(mobileAboutItems, customPages);
+        this.addMenuItems(mobileAboutItems, customPages, 'mobile-sub-item');
     }
 
     /**
